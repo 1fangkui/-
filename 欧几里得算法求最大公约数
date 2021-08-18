@@ -1,0 +1,36 @@
+#include "stdio.h"
+
+int gys(int a,int b)//最大公约数,递归
+
+{
+
+ if(a%b==0) return b;
+
+ return gys(b,a%b);
+
+} 
+
+int main(){//求最小公倍数 
+
+ int a,b;
+
+ while(scanf("%d%d",&a,&b)!=EOF){
+
+  int t;
+
+  if(a<b){//让a>b 
+
+   t=a;
+
+   a=b;
+
+   b=t;
+
+  }  
+
+  printf("%d\n",a*b/gys(a,b));  
+
+ }
+
+ return 0;
+ }
