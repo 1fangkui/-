@@ -1,0 +1,30 @@
+@Frosero
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+long long mul(long long n){
+    if(n == 0 || n == 1) return n;
+    return n * mul(n - 1);
+}
+
+long long KT(string &s){  //康拓展开
+    long long ans = 0;
+    for(string::size_type i=0;i<s.size();i++){
+        long long ai = 0;     
+        for(string::size_type j=i+1;j<s.size();j++){ //计算ai
+            if(s[i] > s[j]){
+                ai++;
+            }
+        }
+        ans += ai * mul(s.size() - i - 1);
+    }
+    return ans;  //若想求此字符串是第几小，则返回ans+1
+}
+
+int main(){
+    string s = "CAB";
+    cout << KT(s);
+    return 0;
+}
