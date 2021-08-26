@@ -1,0 +1,6 @@
+int a = 5, pow = 101, m = 3, result = 1;
+ 
+for(int i=1; i<=pow; i++){
+    result *= a;
+    result %= m;
+}
